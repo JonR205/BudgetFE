@@ -1,0 +1,45 @@
+<!-- <app-transaction *ngFor="let transaction of transactions" [transaction]="transaction"></app-transaction> -->
+<br />
+<div class="example-button-container">
+    <button *ngIf="!addATransaction" (click)="addATransaction = true" mat-fab extended color="primary"> Add a
+        transaction </button>
+</div>
+<div style="padding-top: 10px">
+    <button (click)="viewtransactions = true"> View Transactions </button>
+</div>
+
+
+<div *ngIf="addATransaction">
+    <form [formGroup]="transactionInfoForm">
+        <label for="bankName"> Bank Name: </label>
+        <input id="bankName" type="text" formControlName="bankName">
+        <label for="budgetName"> Budget Name: </label>
+        <input id="budgetName" type="text" formControlName="budgetName">
+        <label for="transactionAmount"> Transaction Amount: </label>
+        <input id="transactionAmount" type="number" formControlName="transactionAmount">
+        <label for="destination"> Associated Destinations: </label>
+        <input id="destination" type="text" formControlName="destination">
+        <!-- <div class="example-button-row">
+            <button type="button" (click)="addTransaction()" mat-raised-button color="primary"> Submit </button>
+        </div> -->
+
+    </form>
+</div>
+
+<div *ngIf="viewtransactions">
+    <table matSort (matSortChange)="sortData($event)">
+        <tr>
+            <th mat-sort-header="sourceOrDestination">Destination</th>
+            <th mat-sort-header="amount">Amount</th>
+            <th mat-sort-header="budget">Budget</th>
+            <th mat-sort-header="bank">Bank Account</th>
+        </tr>
+
+        <tr *ngFor="let transaction of sortedData">
+            <td>{{transaction.sourceOrDestination}}</td>
+            <td>{{transaction.amount}}</td>
+            <td>{{transaction.budgetName}}</td>
+            <td>{{transaction.bankName}}</td>
+        </tr>
+    </table>
+</div>

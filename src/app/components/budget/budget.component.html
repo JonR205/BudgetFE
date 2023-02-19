@@ -1,0 +1,29 @@
+<div *ngIf="!editBudget">
+    <p> Budget Name: {{budget?.budgetname}}
+    <p>
+    <p for="total"> Budget Total: {{budget?.total}}</p>
+    <p for="associatedDestination"> Associated Destinations: {{budget?.associatedDestination}}</p>
+    <section>
+        <div class="example-button-row">
+            <button (click)="editBudget = true" mat-raised-button color="primary"> Update Budget info</button>
+            <button (click)="onDelete()" mat-raised-button color="warn">Delete</button>
+        </div>
+    </section>
+</div>
+
+
+<div *ngIf="editBudget">
+    <form [formGroup]="budgetInfoForm">
+        <label for="budgetname"> Budget Name: {{budget?.budgetname}} </label>
+        <input id="budgetname" type="text" formControlName="budgetname">
+        <label for="total"> Budget Total: {{budget?.total}}</label>
+        <input type="number" formControlName="total">
+        <label for="associatedDestination"> Associated Destinations: {{budget?.associatedDestination}}</label>
+        <input type="text" formControlName="associatedDestination">
+        <section>
+            <div class="example-button-row">
+                <button (click)="updateBudget()" mat-raised-button color="primary"> Submit</button>
+            </div>
+        </section>
+    </form>
+</div>

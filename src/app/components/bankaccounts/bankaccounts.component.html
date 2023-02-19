@@ -1,0 +1,25 @@
+<app-bankaccount *ngFor="let bankAccount of bankAccounts" [bankAccount]="bankAccount"></app-bankaccount>
+<br />
+<section>
+    <div class="example-button-container">
+        <button (click)="addABankAccount = true" mat-fab extended color="primary"
+            aria-label="Example icon button with a plus one icon">Add Bank Account
+        </button>
+    </div>
+</section>
+
+
+<div *ngIf="addABankAccount">
+    <form [formGroup]="bankAccountInfoForm">
+        <label for="name"> Enter Bank Account Name: </label>
+        <input id="name" type="text" formControlName="name">
+        <label for="type"> Enter Bank Account type: </label>
+        <input type="text" formControlName="type">
+        <label for="balance"> Enter Bank Account Balance: </label>
+        <input type="number" formControlName="balance">
+        <div class="example-button-row">
+            <button (click)="addBankAccount()" mat-raised-button color="primary"> Submit </button>
+        </div>
+
+    </form>
+</div>

@@ -1,0 +1,21 @@
+<app-budget *ngFor="let budget of budgets" [budget]="budget"></app-budget>
+<br />
+<div class="example-button-container">
+    <button *ngIf="!addABudget" (click)="addABudget = true" mat-fab extended color="primary"> Add a Budget </button>
+</div>
+
+
+<div *ngIf="addABudget">
+    <form [formGroup]="budgetInfoForm">
+        <label for="budgetname"> Enter Budget Name: </label>
+        <input id="budgetname" type="text" formControlName="budgetname">
+        <label for="total"> Enter Budget Total: </label>
+        <input type="number" formControlName="total">
+        <label for="associatedDestination"> Enter Budget's Associated Destinations: </label>
+        <input type="text" formControlName="associatedDestination">
+        <div class="example-button-row">
+            <button type="button" (click)="addBudget()" mat-raised-button color="primary"> Submit </button>
+        </div>
+
+    </form>
+</div>

@@ -1,0 +1,32 @@
+<div *ngIf="!editBankAccount">
+    <p> Bank Account Name: {{bankAccount?.name}}
+    <p>
+    <p for="type"> Bank Account type: {{bankAccount?.type}}</p>
+    <p for="balance"> Bank Account Balance: {{bankAccount?.balance}}</p>
+    <section>
+        <div class="example-button-row">
+            <button (click)="editBankAccount = true" mat-raised-button color="primary">Click Here to Update Account
+                info</button>
+            <button (click)="onDelete()" mat-raised-button color="warn"> Delete</button>
+        </div>
+    </section>
+</div>
+
+
+<div *ngIf="editBankAccount">
+    <form [formGroup]="bankAccountInfoForm">
+        <label for="name"> Bank Account Name: {{bankAccount?.name}}</label>
+        <input id="name" type="text" formControlName="name">
+        <label for="type"> Bank Account type: {{bankAccount?.type}}</label>
+        <input type="text" formControlName="type">
+        <label for="balance"> Bank Account Balance: {{bankAccount?.balance}}</label>
+        <input type="number" formControlName="balance">
+        <section>
+            <div class="example-button-row">
+                <button (click)="updateBankAccount()" mat-raised-button color="primary"> Submit </button>
+            </div>
+        </section>
+
+
+    </form>
+</div>

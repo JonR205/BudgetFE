@@ -1,0 +1,62 @@
+{
+  "bankAccounts": [
+    {
+      "name": "BOM",
+      "type": "Checking",
+      "balance": 100,
+      "id": 10
+    }
+  ],
+  "budgets": [
+    {
+      "budgetname": "Cars",
+      "id": 2,
+      "total": 100,
+      "associatedDestination": "Toyota"
+    }
+  ],
+  "transaction": [
+    {
+      "sourceOrDestination": "Toyota",
+      "amount": 100,
+      "budgetId": 2,
+      "bankId": 6,
+      "id": 3
+    },
+    {
+      "sourceOrDestination": "Toyota",
+      "amount": 50,
+      "budgetId": 2,
+      "bankId": 7,
+      "id": 4
+    },
+    {
+      "sourceOrDestination": "Toyota",
+      "amount": 50,
+      "budgetId": 2,
+      "bankId": 7,
+      "id": 5
+    },
+    {
+      "sourceOrDestination": "Toyota",
+      "amount": 1,
+      "budgetId": 2,
+      "bankId": 7,
+      "id": 8
+    },
+    {
+      "sourceOrDestination": "Toyota",
+      "amount": 2222,
+      "budgetId": 2,
+      "bankId": 7,
+      "id": 9
+    },
+    {
+      "sourceOrDestination": "Toyota",
+      "amount": 50,
+      "budgetId": 2,
+      "bankId": 9,
+      "id": 10
+    }
+  ]
+}
